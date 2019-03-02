@@ -57,8 +57,7 @@ function loadFormData(formData) {
         pointToLayer: function (feature, latlng) {
             // in this case, we build an HTML DIV string
             // using the values in the data
-            var htmlString = "<DIV id='popup'" + feature.properties.id + "><h2>" +
-                feature.properties.name + "</h2><br>";
+            var htmlString = "<DIV id='popup'" + feature.properties.id + "><h2>" + feature.properties.name + "</h2><br>";
             htmlString = htmlString + "<h3>" + feature.properties.surname + "</h3><br>";
             htmlString = htmlString + "<input type='radio' name='answer' id ='" + feature.properties.id + "_1'/>" + feature.properties.module + "<br>";
             htmlString = htmlString + "<input type='radio' name='answer' id ='" + feature.properties.id + "_2'/>" + feature.properties.language + "<br>";
