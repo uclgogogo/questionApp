@@ -23,12 +23,19 @@ function addPointLinePoly() {
     mymap.setView([51.505, -0.09], 13);
 }
 
-var xhrFormData;
 
+// map onclick
+mymap.on('click', function (e) {
+    var coord = e.latlng;
+    var lat = coord.lat;
+    var lng = coord.lng;
+    console.log("You clicked the map at latitude: " + lat + " and longitude: " + lng);
+});
+
+var xhrFormData;
 function startFormDataLoad() {
     xhrFormData = new XMLHttpRequest();
     var url = "http://developer.cege.ucl.ac.uk:" + httpPortNumber;
-    url = url + "/getGeoJSON/formdata/geom/" + httpPortNumber;
     xhrFormData.open("GET", url, true);
     xhrFormData.onreadystatechange = formDataResponse;
     xhrFormData.send();
