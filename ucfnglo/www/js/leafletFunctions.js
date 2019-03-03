@@ -1,8 +1,4 @@
 function addPointLinePoly() {
-
-// add a point
-    L.marker([51.5, -0.09]).addTo(mymap)
-        .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 // add a circle
     L.circle([51.508, -0.11], 500, {
         color: 'red',
@@ -24,13 +20,20 @@ function addPointLinePoly() {
 }
 
 
-// map onclick
+// click map to get latlng and delete original one
+var marker
 mymap.on('click', function (e) {
+    if (marker) {
+        mymap.removeLayer(marker);
+    }
     var coord = e.latlng;
-    var lat = coord.lat;
-    var lng = coord.lng;
-    console.log("You clicked the map at latitude: " + lat + " and longitude: " + lng);
+    document.getElementById('latitude').value = coord.lat;
+    document.getElementById('longitude').value = coord.lng;
+    marker = new L.marker([coord.lat, coord.lng],{icon: MarkerGreen}).addTo(mymap)
+        .bindPopup("<b>Latitude: </b>"+coord.lat+"<br /><b>Longitude: </b>"+coord.lng).openPopup();
 });
+
+//get data
 
 var xhrFormData;
 function startFormDataLoad() {
@@ -82,3 +85,17 @@ function loadFormData(formData) {
     }).addTo(mymap);
     mymap.fitBounds(formLayer.getBounds());
 }
+
+//add custom icon
+var MarkerRed = L.AwesomeMarkers.icon({
+    icon: 'play',
+    markerColor: 'red'
+});
+var MarkerPink = L.AwesomeMarkers.icon({
+    icon: 'play',
+    markerColor: 'pink'
+});
+var MarkerGreen = L.AwesomeMarkers.icon({
+    icon: 'play',
+    markerColor: 'green'
+});
