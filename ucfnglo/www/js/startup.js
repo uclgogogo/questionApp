@@ -4,6 +4,7 @@ function trackAndCircle() {
 	getQuestions();
 	getPort();
 	loadW3HTML();
+	getAll()
 }
 
 function startup() {

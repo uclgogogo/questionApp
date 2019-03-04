@@ -39,8 +39,6 @@ function loadEarthquakelayer(earthquakedata) {
                     .bindPopup("<b>Title: </b>"+feature.properties.question_title+"<br /><b>Question: </b>"+feature.properties.question_text).openPopup();
             },
         }).addTo(mymap);
-    // change the map zoom so that all the data is shown
-    mymap.fitBounds(earthquakelayer.getBounds());
 }
 
 //add custom icon
@@ -48,3 +46,8 @@ var testMarkerRed = L.AwesomeMarkers.icon({
     icon: 'play',
     markerColor: 'red'
 });
+
+// change the map zoom so that all the data is shown
+function getAll() {
+    mymap.fitBounds(earthquakelayer.getBounds());
+}
