@@ -4,7 +4,7 @@ var client;
 var earthquakes;
 
 // create the code to get the Earthquakes data using an XMLHttpRequest
-function getEarthquakes() {
+function getQuestions() {
     client = new XMLHttpRequest();
     client.open('GET', 'http://developer.cege.ucl.ac.uk:30292/getQuizPoints/30292');
     client.onreadystatechange = earthquakeResponse; // note don't use earthquakeResponse() with brackets as that doesn't work
@@ -36,7 +36,7 @@ function loadEarthquakelayer(earthquakedata) {
                 // look at the GeoJSON file - specifically at the properties - to see the earthquake magnitude and use a different marker depending on this value
                 // also include a pop-up that shows the place value of the earthquakes
                 return L.marker(latlng, {icon: testMarkerRed}).bindPopup("<b>" + feature.properties.place + "</b>")
-                    .bindPopup("<b>Latitude: </b>"+feature.properties.question_title+"<br /><b>Longitude: </b>"+feature.properties.question_text).openPopup();
+                    .bindPopup("<b>Title: </b>"+feature.properties.question_title+"<br /><b>Question: </b>"+feature.properties.question_text).openPopup();
             },
         }).addTo(mymap);
     // change the map zoom so that all the data is shown
