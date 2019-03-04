@@ -33,6 +33,8 @@ mymap.on('click', function (e) {
         .bindPopup("<b>Latitude: </b>"+coord.lat+"<br /><b>Longitude: </b>"+coord.lng).openPopup();
 });
 
+
+
 //get data
 
 var xhrFormData;
