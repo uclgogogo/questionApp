@@ -3,24 +3,30 @@ function startDataUpload() {
     //get the textbox values
     var question_title = document.getElementById("question_title").value;
     var question_text = document.getElementById("question_text").value;
+    var answer_1 = document.getElementById("answer_1").value;
+    var answer_2 = document.getElementById("answer_2").value;
+    var answer_3 = document.getElementById("answer_3").value;
+    var answer_4 = document.getElementById("answer_4").value;
     var postString = "question_title=" + question_title + "&question_text=" + question_text;
+    postString = postString + "answer_1=" + answer_1 + "&answer_2=" + answer_2;
+    postString = postString + "&answer_3=" + answer_3 + "&answer_4=" + answer_4;
 
 
     // now get the radio button values
     if (document.getElementById("choose_1").checked) {
-        postString = postString + "&correct_answer=1";
+        postString = postString + "&correct_answer="+1;
     }
 
     if (document.getElementById("choose_2").checked) {
-        postString = postString + "&correct_answer=2";
+        postString = postString + "&correct_answer="+2;
     }
 
     if (document.getElementById("choose_3").checked) {
-        postString = postString + "&correct_answer=3";
+        postString = postString + "&correct_answer=3"+3;
     }
 
     if (document.getElementById("choose_4").checked) {
-        postString = postString + "&correct_answer=4";
+        postString = postString + "&correct_answer=4"+4;
     }
 
 
