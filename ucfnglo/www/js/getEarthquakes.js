@@ -6,7 +6,8 @@ var earthquakes;
 // create the code to get the Earthquakes data using an XMLHttpRequest
 function getQuestions() {
     client = new XMLHttpRequest();
-    client.open('GET', 'http://developer.cege.ucl.ac.uk:30292/getQuizPoints/30292');
+    alert('http://developer.cege.ucl.ac.uk:' + httpPortNumber + '/getQuizPoints/' + httpPortNumber);
+    client.open('GET', 'http://developer.cege.ucl.ac.uk:' + httpPortNumber + '/getQuizPoints/' + httpPortNumber);
     client.onreadystatechange = earthquakeResponse; // note don't use earthquakeResponse() with brackets as that doesn't work
     client.send();
 }
